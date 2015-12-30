@@ -154,9 +154,11 @@ function updateDataView(){
   if ($.cookie('token')){
     $('#user-manager').hide();
     $('#haiku-writer').show();
+    $('form#search').show();
   } else {
     $('#user-manager').show();
     $('#haiku-writer').hide();
+    $('form#search').hide();
   }
 
   getUsers(renderLatestUsersData);
