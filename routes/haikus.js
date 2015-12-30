@@ -36,6 +36,23 @@ router.post('/', function(req, res){
 });
 
 
+router.delete('/:id', function(req, res){
+  var id = req.params.id;
+  var haiku;
+  if (req.user){
+    haiku = req.user.haikus.id(id);
+  }
+  if (req.user && haiku){
+    haiku.remove();
+    req.user.save(function(){
+      res.json({status: 202, desciption: 'Removed... at least we think...'});
+    });
+  } else {
+    res.json({status: 302, desciption: 'Must log in...'});
+  }
+});
+
+
 router.post('/:id', function(req, res){
   var id = req.params.id;
   if (req.user){

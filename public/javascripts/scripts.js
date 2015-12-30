@@ -27,7 +27,25 @@ function renderHaikuHTML(user, haiku){
 }
 
 
-function renderUsersData(users){
+function renderAll(users){
+  users = users || [];
+  $('#haiku-list').empty();
+  var user, haiku, $html;
+  for (var i = 0; i < users.length; i++) {
+    user = users[i];
+    if (user.haikus.length > 0){
+      for (var i = 0; i < user.haikus.length; i++) {
+        haiku = user.haikus[i];
+        $html = renderHaikuHTML(user, haiku);
+        $('#haiku-list').append($html);
+      }
+    }
+  }
+}
+
+
+function renderLatestUsersData(users){
+  users = users || [];
   $('#haiku-list').empty();
   var user, haiku, $html;
   for (var i = 0; i < users.length; i++) {
@@ -135,14 +153,47 @@ function updateDataView(){
 
   if ($.cookie('token')){
     $('#user-manager').hide();
+    $('#haiku-writer').show();
   } else {
     $('#user-manager').show();
+    $('#haiku-writer').hide();
   }
 
-  getUsers(renderUsersData);
+  getUsers(renderLatestUsersData);
 
 }
 
+function setHaikuTrashHandler(){
+  $('#haiku-list').on('click', 'i.trash', function(){
+    var id = $(this).data('database-id');
+    $.ajax({
+      url: '/api/haikus/' + id,
+      method: 'delete',
+      success: function(){
+        updateDataView();
+      }
+    })
+  });
+}
+
+
+function setSearchHandler(){
+  $('#banner form#search input[name="search"]').on('keyup', function(e){
+    e.preventdefault;
+    var searchString = $(this).val();
+    getUsers(function(users){
+      var pickedUsers = _.select(users, function(user){
+        return testInclude(user.username, searchString);
+      });
+      renderAll(pickedUsers);
+    });
+  })
+}
+
+function testInclude(bodyString, searchString) {
+  var re = new RegExp(searchString, 'i');
+  return bodyString.search(re) != -1;
+}
 
 
 $(function(){
@@ -152,5 +203,7 @@ $(function(){
   setHaikyWriterHandler();
   setCommentWriterHandler();
   setLogInHandler()
+  setSearchHandler();
+  setHaikuTrashHandler();
 
 });

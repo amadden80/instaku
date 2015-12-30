@@ -17,11 +17,11 @@
     <h2 class='username'>
       <%%= user.username %>
     </h2>
-    <%% _.each(haiku.body.split("\n"), function(line){ %>
-      <p>
-        <%%= line %>
-      </p>
-    <%% }) %>
+      <%% _.each(haiku.body.split("\n"), function(line){ %>
+        <p>
+          <%%= line %>
+        </p>
+      <%% }) %>
     <section class="comment-list">
 
       <%% _.each(haiku.comments, function(comment){ %>
@@ -42,6 +42,7 @@
         <input type="submit" style="visibility: hidden;"/>
       </form>
     </section>
+    <i data-database-id="<%%= haiku._id %>" class="trash fa fa-trash"></i>
   </div>
 </script>
 
