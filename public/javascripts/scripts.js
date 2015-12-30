@@ -8,7 +8,7 @@ function getUsers(callback){
     url: '/api/users',
     method: 'get',
     success: function(data){
-      var users = data.users;
+      var users = data.users.reverse();
       callback(users);
     }
   });
