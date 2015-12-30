@@ -7,8 +7,9 @@ var express = require('express');
 var app = express();
 
 // Mongoose! - Load and connect to our mongo database
+var mongoPath = process.env.MONGOLAB_URI || 'mongodb://localhost/instaku'
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/instaku');
+mongoose.connect(mongoPath);
 
 // Let's use EJS for our template rendering!
 app.set('view engine', 'ejs');
