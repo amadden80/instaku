@@ -205,7 +205,7 @@ $(function(){
   setHaikyWriterHandler();
   setCommentWriterHandler();
   setLogInHandler()
-  setSearchHandler();
+  // setSearchHandler();
   setHaikuTrashHandler();
 
 });
