@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include ./partials/head %>
+  </head>
+  <body>
+
+    <header>
+      <% include ./partials/header %>
+    </header>
+
+    <section id="user-manager" class="content-block">
+      <% include ./partials/user-manager %>
+    </section>
+
+
+    <section class="content-block" id="haiku-writer">
+
+      <form id="haiku" action="/api/haikus" method="post">
+        <textarea name="haiku[body]" rows="3" cols="40"></textarea>
+        <input type="submit" value='write' />
+      </form>
+
+    </section>
+
+    <section id='haiku-list'>
+
+    </section>
+
+  </body>
+</html>

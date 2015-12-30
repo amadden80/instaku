@@ -1,0 +1,17 @@
+<div class="user-manage-prompt">
+  <h4>Sign-Up User!</h4>
+  <form id="sign-in" action="/api/users" method="post">
+    <input type="input" name="user[username]" placeholder="...username">
+    <input type="pasword" name="user[password]" placeholder="...password">
+    <input type="submit" style="visibility: hidden;" />
+  </form>
+</div>
+
+<div class="user-manage-prompt">
+  <h4>Log-In !</h4>
+  <form id="log-in" action="/api/users/token" method="post">
+    <input type="input" name="username" placeholder="...username">
+    <input type="pasword" name="password" placeholder="...password">
+    <input type="submit" style="visibility: hidden;" />
+  </form>
+</div>

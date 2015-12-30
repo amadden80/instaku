@@ -1,0 +1,95 @@
+body{
+  background-color: lightblue;
+  font-family: 'EB Garamond', serif;
+  margin: 0;
+  background-color: rgb(249,249,249);
+}
+
+h1{
+  font-family: 'Dancing Script', cursive;
+}
+
+h2{
+  text-transform: uppercase;
+}
+
+form input,textarea{
+  border-radius:15px;
+  padding: 0.5em 0.25em;
+  border: 1px solid lightgrey;
+  font-size: 1em;
+  font-family: FontAwesome;
+}
+
+form input[type=submit]{
+  background:none;
+  border:none;
+  font-size:1em;
+  color: rgb(0,53,103);
+  font-family: 'EB Garamond', serif;
+}
+
+.content-block{
+  background-color: rgb(254,254,254);
+  border: 1px solid rgb(230,230,230);
+  margin: 3em auto;
+  padding: 3em;
+  width: 500px;
+}
+
+
+
+/* Header */
+
+header #banner{
+  width: 100%;
+  background-color: rgb(254,254,254);
+  padding: 1em;
+  margin-bottom: 3em;
+  text-align: center;
+  border-bottom: 1px solid rgb(230,230,230);
+}
+
+header #logo{
+  display: inline-block;
+  margin: 0 2em;
+  color: rgb(0,53,103);
+}
+
+header #logo::first-letter{
+  font-family: 'Cookie', cursive;
+}
+
+header form#search{
+  margin: 0 2em;
+  display: inline-block;
+}
+
+
+/* User Mangement */
+#user-manager{
+}
+
+.user-manage-prompt{
+  display: inline-block;
+}
+
+
+/* Heiku */
+.haiku .username{
+  border-bottom: 1px solid rgb(230,230,230);
+}
+
+.haiku .comment-list{
+  margin-top: 2em;
+  text-align: right;
+}
+
+.haiku .comment{
+  color: rgba(0,0,0,0.5);
+  padding: 0 1em;
+}
+
+.haiku .comment .username{
+  border-bottom: 1px solid rgb(230,230,230);
+}
