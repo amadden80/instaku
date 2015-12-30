@@ -17,9 +17,11 @@
     <h2 class='username'>
       <%%= user.username %>
     </h2>
-    <p>
-      <%%= haiku.body %>
-    </p>
+    <%% _.each(haiku.body.split("\n"), function(line){ %>
+      <p>
+        <%%= line %>
+      </p>
+    <%% }) %>
     <section class="comment-list">
 
       <%% _.each(haiku.comments, function(comment){ %>

@@ -52,7 +52,6 @@ var index = require('./routes/index');
 app.use('/', index);
 
 
-
 // ---------------------
 // ****** Listen! ******
 // ---------------------
@@ -62,5 +61,5 @@ app.use('/', index);
 var port = process.env.PORT || 8080;
 
 app.listen(port,function(){
-  console.log('...listening');
+  console.log('...listening on ' + port);
 });
