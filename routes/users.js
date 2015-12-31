@@ -32,14 +32,18 @@ router.get('/', function(req, res){
 router.post('/token', function(req, res){
   console.log('Token Attempt!');
   User.findOne({username: req.body.username}, function(err, databaseUser){
-    databaseUser.authenticate(req.body.password, function(err, isMatch){
-      if(isMatch){
-        databaseUser.setToken(err, function(){
-          res.cookie('token', databaseUser.token, {maxAge: 60*1000*5});
-          res.json({login: 'success', status: 202});
-        });
-      }
-    });
+    if (databaseUser){
+      databaseUser.authenticate(req.body.password, function(err, isMatch){
+        if(isMatch){
+          databaseUser.setToken(err, function(){
+            res.cookie('token', databaseUser.token, {maxAge: 60*1000*5});
+            res.json({login: 'success', status: 202});
+          });
+        }
+      });
+    } else {
+      res.json({description: 'No success', status: 302});
+    }
   });
 });
 
