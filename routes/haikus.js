@@ -6,6 +6,7 @@ var express = require('express');
 var router = express.Router();
 var User = require('../models/user');
 var mongoose = require('mongoose');
+var faku = require('../lib/faku');
 var ObjectId = mongoose.Types.ObjectId;
 
 
@@ -19,6 +20,11 @@ router.get('/', function(req, res){
   } else {
     res.json({status: 302, desciption: 'Must log in...'});
   }
+});
+
+router.get('/random', function(req, res){
+  var haiku = faku.genKu();
+  res.json({haiku: haiku });
 });
 
 router.post('/', function(req, res){
