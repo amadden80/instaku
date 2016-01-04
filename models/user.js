@@ -1,15 +1,14 @@
 // ----------------------
 // ****** Modules! ******
 // ----------------------
-
 var mongoose = require('mongoose');
 var bcrypt = require('bcryptjs');
 var crypto = require('crypto');
 
+
 // ----------------------
 // ****** Schemas! ******
 // ----------------------
-
 
 // ~~~ Comment! ~~~
 var CommentSchema = mongoose.Schema({
