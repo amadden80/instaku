@@ -131,6 +131,7 @@ function login(username, password){
       password: password
     },
     success: function(data){
+      $.cookie('token', data.token);
       updateDataView();
     }
   });

@@ -36,9 +36,8 @@ router.post('/token', function(req, res){
       databaseUser.authenticate(req.body.password, function(err, isMatch){
         if(isMatch){
           databaseUser.setToken(err, function(){
-            res.cookie('username', databaseUser.username, {maxAge: 60*1000*5});
-            res.cookie('token', databaseUser.token, {maxAge: 60*1000*5});
-            res.json({login: 'success', status: 202});
+            // res.cookie('token', databaseUser.token, {maxAge: 60*1000*5});
+            res.json({description: 'success', token: databaseUser.token});
           });
         }
       });
